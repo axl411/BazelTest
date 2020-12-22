@@ -10,7 +10,10 @@ swift_library(
     ],
     data = glob([
         "**/*.storyboard",
-    ])
+    ]),
+    deps = [
+        "//MyLib",
+    ]
 )
 
 ios_application(
@@ -20,7 +23,7 @@ ios_application(
         "iphone",
     ],
     minimum_os_version = "14.0",
-    infoplists = [":TestBazel/Info.plist"],
+    infoplists = [":Info.plist"],
     visibility = ["//visibility:public"],
     deps = [":TestBazelLib"],
 )
